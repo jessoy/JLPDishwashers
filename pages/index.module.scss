@@ -1,0 +1,33 @@
+.content {
+  display: grid;
+  gap: 1px;
+  background-color: #dddddd;
+  color: black;
+  padding: 1px ;
+  font-weight: 200;
+  letter-spacing: normal;
+  line-height: 20px;
+  font-family: GillSansforJL, Gill Sans, Gill Sans MT, Arial, Helvetica, sans-serif;
+}
+
+@media screen and (min-width: 768px) {
+  .content {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.link {
+  color: inherit;
+  text-decoration: none;
+  display: block;
+  background: white;
+}
+
+.content {
+  background-color: #fff;
+  padding: 25px;
+}
+
+.price {
+  font-weight: bold;
+}

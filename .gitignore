@@ -1,0 +1,18 @@
+*.vscode/
+*.next/
+
+# Ignore local development folders
+.npm
+node_modules
+
+# Testing
+coverage
+.nyc_output
+
+# New Relic
+newrelic*
+!newrelic.js
+
+# Ignore .env local overrides
+.env*.local
+
