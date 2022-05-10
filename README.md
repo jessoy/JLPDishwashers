@@ -46,3 +46,29 @@ There is mock data available for testing in the `mockData` folder.
 - Install the NPM dependencies using `npm i`. (You will need to have already installed NPM using version `14.x`.)
 - Run the development server with `npm run dev`
 - Open [http://localhost:3000](http://localhost:3000) with your browser.
+
+
+## Tests 
+
+## Assumptions
+
+## Notes
+
+## Instructions
+
+## Improvement suggestions 
+- Bespoke Headers for pages - e.g. Home page and product pages
+
+## To Do
+- All styling (mobile first)
+- Tablet Styling
+- Desktop Styling
+- Security - Api consumption to API folder - hidden back end - hide information from customers
+
+# Third Party Code Used
+
+- Axios - combine get and json formatting 
+- React-responsive Carousel 
+- time limitations and experience
+
+

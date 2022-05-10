@@ -25,6 +25,7 @@ export async function getServerSideProps(context) {
 
 const ProductDetail = ({ data }) => {
   console.log(data);
+  console.log(data.media.images.urls);
   return (
     // head required for SEO
 
@@ -46,7 +47,8 @@ const ProductDetail = ({ data }) => {
         <div dangerouslySetInnerHTML={{ __html: data.title }} />
       </h1>
       <div>
-        <ProductCarousel image={data.media.images.urls[0]} />
+        {/* <ProductCarousel image={data.media.images.urls[0]} /> */}
+        <ProductCarousel imageUrls={data.media.images.urls} />
 
         {/* switched div and h3 labels */}
         <div>
