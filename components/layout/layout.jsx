@@ -1,6 +1,7 @@
 import styles from "./layout.module.scss";
 
 const Layout = ({ children }) => {
+  // const Layout = ({ children, type }) => {
   return (
     <div className={styles.content}>
       <main className={styles.main}>
@@ -9,6 +10,13 @@ const Layout = ({ children }) => {
         </div>
       </main>
     </div>
+// add head - SEO 
+// <header> {home ? (render one way ): 
+//   not home (render another way, include link to home or back button)} </header>
+//* <main></main> */}
+//* <footer></footer> */}
+// link home?
+
   );
 };
 

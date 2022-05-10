@@ -4,6 +4,8 @@ import styles from "./index.module.scss";
 import ProductListItem from "../components/product-list-item/product-list-item";
 import axios from "axios";
 
+// axios for experience and auto-Json functionality
+// runs on every request
 export async function getServerSideProps() {
   const response = await axios.get(
     "https://api.johnlewis.com/search/api/rest/v2/catalog/products/search/keyword?q=dishwasher&key=AIzaSyDD_6O5gUgC4tRW5f9kxC0_76XRC8W7_mI"
@@ -17,6 +19,8 @@ export async function getServerSideProps() {
     },
   };
 }
+
+// issue with initial loading - time delay for API to load?
 
 // export async function getStaticProps() {
 //   const allDishwasherData = getAllDishwasherData();
@@ -35,8 +39,11 @@ const Home = ({ data }) => {
   return (
     <div>
       <Head>
-        <title>JL &amp; Partners | Home</title>
+        <title>Dishwashers | JL &amp; Partners </title>
         <meta name="keywords" content="shopping" />
+        <meta name="description" content={data.pageInformation.title} />
+        {/* how to change out /null/ to dishwashers */}
+        {/* query keywords */}
       </Head>
       
       <div>
@@ -57,6 +64,7 @@ const Home = ({ data }) => {
                   </div>
                   <div>{item.title}</div>
                   {/* <div className={styles.price}>{item.price.now}</div> */}
+                  <div className={styles.price}>{item.variantPriceRange.display.max}</div>
                 </div>
               </a>
             </Link>
