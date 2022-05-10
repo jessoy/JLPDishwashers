@@ -22,24 +22,26 @@ const ProductCarousel = ({ imageUrls }) => {
       {/* <img src={image} alt="product image" style={{ width: "100%", maxWidth: "500px" }} /> */}
 
       <Carousel
-        showThumbs="false"
+        showThumbs={false}
+        autoPlay
         infiniteLoop="true"
-        // style={{ width: "100%", maxWidth: "500px" }}
+        // stopOnHover="true"
+        showStatus={false}
+        style={{ width: "100%", maxWidth: "500px" }}
       >
-        {/* {imageUrls ? ( */}
-        {imageUrls.map((url, index) => {
-          return (
-            <div key={index}>
-              <img
-                src={url}
-                alt="product image"
-                style={{ width: "100%", maxWidth: "500px" }}
-              />
-              {/* <p className="legend">Image 1</p> */}
-            </div>
-          );
-        })}
-
+        {!imageUrls
+          ? null
+          : imageUrls.map((url, index) => {
+              return (
+                <div key={index}>
+                  <img
+                    src={url}
+                    alt="product image"
+                    style={{ width: "100%", maxWidth: "500px" }}
+                  />
+                </div>
+              );
+            })}
       </Carousel>
     </div>
   );
@@ -47,5 +49,3 @@ const ProductCarousel = ({ imageUrls }) => {
 
 export default ProductCarousel;
 
-// add images to carousel
-// map over media - images
