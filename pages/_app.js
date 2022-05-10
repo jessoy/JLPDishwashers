@@ -4,10 +4,10 @@ import "../styles/globals.scss";
 function MyApp({ Component, pageProps }) {
   return (
     // <Layout type="netherworld">
-    <Layout>
+
       <Component {...pageProps} /> 
-      {/* routes to index.js default export */}
-    </Layout>
+      // {/* routes to index.js default export */}
+
 
     // one layout for entire app - so layout at this level
     // netherworld syntax unknown - default value 

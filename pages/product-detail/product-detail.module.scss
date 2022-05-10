@@ -1,0 +1,21 @@
+.top,
+.bottom {
+  width: 1.4rem;
+  height: 0.15rem;
+  margin: 0.35rem;
+  background-color: black;
+}
+
+.top {
+  transform: translate(0, 0.4rem) rotate(-45deg);
+}
+
+.bottom {
+  transform: translate(0, 0.4rem) rotate(45deg);
+}
+
+.arrow {
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+}
