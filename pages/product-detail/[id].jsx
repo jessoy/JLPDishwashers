@@ -4,31 +4,30 @@ import Head from "next/head";
 import Layout from "../../components/layout/layout";
 import Link from "next/link";
 import styles from "./product-detail.module.scss";
+import {
+  truncateDescription,
+  sortAttributesAlphabetically,
+} from "../../utils/general";
+import { productDetailsAPI } from "../../config/general";
 
 export async function getServerSideProps(context) {
-  // console.log(context);
-  // console.log(context.params);
-
   const id = context.params.id;
-  const response = await axios.get(
-    "https://api.johnlewis.com/mobile-apps/api/v1/products/" + id
-  );
-  //   const data = await response.json();
-  const data = response.data;
-  // console.log(response);
-  // console.log(data);
-  // console.log(id);
-  return {
-    props: { data },
-  };
+  try {
+    let response = await axios.get(productDetailsAPI + id);
+    const data = response.data;
+    
+    return {
+      props: { data },
+    };
+  } catch (error) {
+    console.log(error)
+    return {error}
+  }
 }
 
 const ProductDetail = ({ data }) => {
-  console.log(data);
-  console.log(data.media.images.urls);
   return (
     // head required for SEO
-
     <Layout>
       <Head>
         <title>{data.title}</title>
@@ -51,28 +50,44 @@ const ProductDetail = ({ data }) => {
         <ProductCarousel imageUrls={data.media.images.urls} />
 
         {/* switched div and h3 labels */}
+        {/* price div  */}
+        {/* this div only to move over in portrait mode */}
         <div>
-          <h1>{data.price.now}</h1>
+          <h1>&#163;{data.price.now}</h1>
 
           <h3>{data.displaySpecialOffer}</h3>
           <h3>{data.additionalServices.includedServices}</h3>
         </div>
 
         <div>
+          {/* descriptive div */}
           <h3>Product information</h3>
+
+          <div
+            dangerouslySetInnerHTML={{
+              __html: truncateDescription(data.details.productInformation),
+            }}
+          ></div>
+          {/* too big - reduce this text */}
+          <p>Product code: {data.code}</p>
         </div>
+
+        {/* specification div */}
         <h3>Product specification</h3>
         <ul>
-          {data.details.features[0].attributes.map((item) => (
-            // unique key added
-            <li key={data.productId + item.name}>
-              {/* no id in api data  */}
-              <div>
-                {item.id}
-                <div dangerouslySetInnerHTML={{ __html: item.name }} />
-              </div>
-            </li>
-          ))}
+          {/* attributes sorted alphabetically and then displayed */}
+          {data.details.features[0].attributes
+            .sort(sortAttributesAlphabetically)
+            .map((item) => (
+              // unique key added
+              <li key={data.productId + item.name}>
+                {/* no id in api data  */}
+                <div>
+                  <div dangerouslySetInnerHTML={{ __html: item.name }} />
+                  {item.values.join(", ") || item.value}
+                </div>
+              </li>
+            ))}
         </ul>
       </div>
     </Layout>

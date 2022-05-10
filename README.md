@@ -48,11 +48,16 @@ There is mock data available for testing in the `mockData` folder.
 - Open [http://localhost:3000](http://localhost:3000) with your browser.
 
 
-## Tests 
+## Tests
+- use of insomnia to consume data and test API
+- use of Git to work in sections and test as went along
+- found inconsistencies of mock data and api data - e.g. id's in product attributes
 
 ## Assumptions
+- too much detail on product information - 
 
 ## Notes
+- Netherworld Syntax unknown - layout component moved down a level for bespoke functions
 
 ## Instructions
 
@@ -64,6 +69,12 @@ There is mock data available for testing in the `mockData` folder.
 - Tablet Styling
 - Desktop Styling
 - Security - Api consumption to API folder - hidden back end - hide information from customers
+- security - dangerously set inner html
+- data.price.now - coming from wrong API - see [id]
+- styling to carousel
+- remove duplicates from api results
+~~- alphabetise product spec results~~
+- spell check 5817337 has spelling error in 
 
 # Third Party Code Used
 

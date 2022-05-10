@@ -2,18 +2,16 @@ import Head from "next/head";
 import Link from "next/link";
 import styles from "./index.module.scss";
 import ProductListItem from "../components/product-list-item/product-list-item";
+//unknown inclusion 
 import axios from "axios";
 import Layout, { siteTitle } from "../components/layout/layout";
+import { productsAPI } from "../config/general";
 
 // axios for experience and auto-Json functionality
 // runs on every request
 export async function getServerSideProps() {
-  const response = await axios.get(
-    "https://api.johnlewis.com/search/api/rest/v2/catalog/products/search/keyword?q=dishwasher&key=AIzaSyDD_6O5gUgC4tRW5f9kxC0_76XRC8W7_mI"
-  );
-  // console.log(response.data);
+  const response = await axios.get(productsAPI);
   const data = response.data;
-  // console.log(data);
   return {
     props: {
       data,
@@ -33,9 +31,9 @@ export async function getServerSideProps() {
 // }
 
 const Home = ({ data }) => {
-  console.log(data);
+  // console.log(data);
   let items = data.products;
-  console.log(items);
+  // console.log(items);
 
   return (
     <Layout home>

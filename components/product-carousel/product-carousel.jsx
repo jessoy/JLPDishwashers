@@ -23,7 +23,7 @@ const ProductCarousel = ({ imageUrls }) => {
 
       <Carousel
         showThumbs={false}
-        autoPlay
+        // autoPlay
         infiniteLoop="true"
         // stopOnHover="true"
         showStatus={false}
