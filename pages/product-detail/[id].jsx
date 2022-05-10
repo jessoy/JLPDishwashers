@@ -1,6 +1,9 @@
 import ProductCarousel from "../../components/product-carousel/product-carousel";
 import axios from "axios";
-import Head from "next/head"
+import Head from "next/head";
+import Layout from "../../components/layout/layout";
+import Link from "next/link";
+import styles from "./product-detail.module.scss";
 
 export async function getServerSideProps(context) {
   // console.log(context);
@@ -21,11 +24,11 @@ export async function getServerSideProps(context) {
 }
 
 const ProductDetail = ({ data }) => {
-  console.log(data)
+  console.log(data);
   return (
-    // head required for SEO 
-    
-    <div>
+    // head required for SEO
+
+    <Layout>
       <Head>
         <title>{data.title}</title>
         <meta name="og:title" content={data.title} />
@@ -33,13 +36,19 @@ const ProductDetail = ({ data }) => {
         {/* add description here - short description */}
       </Head>
 
+      <Link href="/">
+        <div className={styles.arrow}>
+          <div className={styles.top}></div>
+          <div className={styles.bottom}></div>
+        </div>
+      </Link>
       <h1>
         <div dangerouslySetInnerHTML={{ __html: data.title }} />
       </h1>
       <div>
         <ProductCarousel image={data.media.images.urls[0]} />
 
-{/* switched div and h3 labels */}
+        {/* switched div and h3 labels */}
         <div>
           <h1>{data.price.now}</h1>
 
@@ -64,7 +73,7 @@ const ProductDetail = ({ data }) => {
           ))}
         </ul>
       </div>
-    </div>
+    </Layout>
   );
 };
 

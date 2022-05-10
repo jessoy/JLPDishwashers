@@ -3,6 +3,7 @@ import Link from "next/link";
 import styles from "./index.module.scss";
 import ProductListItem from "../components/product-list-item/product-list-item";
 import axios from "axios";
+import Layout, { siteTitle } from "../components/layout/layout";
 
 // axios for experience and auto-Json functionality
 // runs on every request
@@ -34,10 +35,10 @@ export async function getServerSideProps() {
 const Home = ({ data }) => {
   console.log(data);
   let items = data.products;
-  console.log(items)
+  console.log(items);
 
   return (
-    <div>
+    <Layout home>
       <Head>
         <title>Dishwashers | JL &amp; Partners </title>
         <meta name="keywords" content="shopping" />
@@ -45,9 +46,9 @@ const Home = ({ data }) => {
         {/* how to change out /null/ to dishwashers */}
         {/* query keywords */}
       </Head>
-      
+
       <div>
-        <h1>Dishwashers</h1>
+        <h1>Dishwashers ({items.length})</h1>
         <div className={styles.content}>
           {items.map((item) => (
             <Link
@@ -64,14 +65,16 @@ const Home = ({ data }) => {
                   </div>
                   <div>{item.title}</div>
                   {/* <div className={styles.price}>{item.price.now}</div> */}
-                  <div className={styles.price}>{item.variantPriceRange.display.max}</div>
+                  <div className={styles.price}>
+                    {item.variantPriceRange.display.max}
+                  </div>
                 </div>
               </a>
             </Link>
           ))}
         </div>
       </div>
-    </div>
+    </Layout>
   );
 };
 
