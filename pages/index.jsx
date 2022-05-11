@@ -11,6 +11,7 @@ import { restrictAPIResponse } from "../utils/general";
 // runs on every request
 export async function getServerSideProps() {
   const response = await axios.get(productsAPI);
+  // const products = response.data.products;
   const items = restrictAPIResponse(response.data.products, 20)
 
   return {

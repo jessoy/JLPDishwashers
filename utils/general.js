@@ -1,12 +1,6 @@
+//returns an array of a string split into two parts at the first paragraph
 export const truncateDescription = (description) => {
     const index = description.indexOf('<\/p>') +5;
-    // assumming <\/p> is at the right location
-    // test
-    // 5798103 - check bosch texts
-
-    // description.slice(0, index)
-    // description.slice(index)
-
     return [description.slice(0, index), description.slice(index)]
   }
 

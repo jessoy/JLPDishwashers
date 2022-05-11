@@ -10,7 +10,7 @@ import {
 } from "../../utils/general";
 import { productDetailsAPI } from "../../config/general";
 import Arrow from "../../components/arrow/arrow";
-import MoreInfo from "../../components/moreInfo/moreInfo";
+import MoreInfo from "../../components/moreInfo/moreInfo.jsx"
 
 export async function getServerSideProps(context) {
   const id = context.params.id;
@@ -24,11 +24,11 @@ export async function getServerSideProps(context) {
   } catch (error) {
     console.log(error);
     return { error };
+    // this doesn't work 
   }
 }
 
 const ProductDetail = ({ data }) => {
-  console.log(data.media.images.urls);
   return (
     // head required for SEO
     <Layout>
@@ -87,14 +87,6 @@ const ProductDetail = ({ data }) => {
         {/* more info Div  */}
         <div className={styles.moreInfo}>
           <MoreInfo moreInfo={data.details.productInformation}/>
-          
-
-          {/* <h6>Read more</h6>
-          <div>
-              <div onClick>
-                <Arrow />
-              </div>
-          </div> */}
         </div>
 
         {/* specification div */}
@@ -118,6 +110,7 @@ const ProductDetail = ({ data }) => {
               ))}
           </ul>
         </div>
+
       </div>
     </Layout>
   );

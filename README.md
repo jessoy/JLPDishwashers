@@ -68,6 +68,7 @@ There is mock data available for testing in the `mockData` folder.
 
 - Bespoke Headers for pages - e.g. Home page and product pages
 - single source of price information
+- png images
 
 ## To Do
 
@@ -83,7 +84,7 @@ There is mock data available for testing in the `mockData` folder.
 - spell check 5817337 has spelling error in
 - homepage - replace images with png
 - check resolution of images on homepage
-- read more section
+~~- read more section~~
 ~~- product code switched on landscape tablet and above sizes~~
 
 # Third Party Code Used
@@ -95,3 +96,4 @@ There is mock data available for testing in the `mockData` folder.
 - SEO considered in the head
 
 - opted to write my own code for read more section as opposed to a third party resource
+- read more uses state 
