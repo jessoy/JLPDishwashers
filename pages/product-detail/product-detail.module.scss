@@ -16,21 +16,19 @@
   font-size: 0.875rem;
 }
 
-// potrait tablet
-@media only screen and (min-width: 641px) {
-}
 .content {
   width: 100%;
-  padding: 0 15px;
+  padding: 0 15px 0 40px;
+  // padding-left: 40px;
 }
 
-.imageCarousel,
-.priceInfo,
-.description,
-.moreInfo,
-.specification {
-  margin-left: 40px;
-}
+// .imageCarousel,
+// .priceInfo,
+// .description,
+// .moreInfo,
+// .specification {
+//   margin-left: 40px;
+// }
 
 .priceInfo {
   h4,
@@ -84,7 +82,7 @@
     .description,
     .moreInfo,
     .specification {
-      max-width: 58%;
+      max-width: 64%;
       border-right: solid 1px var(--light-grey-color);
     }
 
@@ -102,11 +100,13 @@
 
     .moreInfo {
       // display: block;
-      padding: 25px 25px 25px 0;
+
+      // DELETE
+      // padding: 25px 25px 25px 0;
 
       display: flex;
-      flex-direction: row;
-      justify-content: space-between;
+      // flex-direction: row;
+      // justify-content: space-between;
     }
 
     .priceInfo {

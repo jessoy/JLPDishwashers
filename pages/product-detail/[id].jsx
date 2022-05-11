@@ -10,6 +10,7 @@ import {
 } from "../../utils/general";
 import { productDetailsAPI } from "../../config/general";
 import Arrow from "../../components/arrow/arrow";
+import MoreInfo from "../../components/moreInfo/moreInfo";
 
 export async function getServerSideProps(context) {
   const id = context.params.id;
@@ -76,7 +77,7 @@ const ProductDetail = ({ data }) => {
           <div className={styles.code}>
             <p
               dangerouslySetInnerHTML={{
-                __html: truncateDescription(data.details.productInformation),
+                __html: truncateDescription(data.details.productInformation)[0],
               }}
             ></p>
             <p>Product code: {data.code}</p>
@@ -85,12 +86,15 @@ const ProductDetail = ({ data }) => {
 
         {/* more info Div  */}
         <div className={styles.moreInfo}>
-          <h6>Read more</h6>
+          <MoreInfo moreInfo={data.details.productInformation}/>
+          
+
+          {/* <h6>Read more</h6>
           <div>
               <div onClick>
                 <Arrow />
               </div>
-          </div>
+          </div> */}
         </div>
 
         {/* specification div */}

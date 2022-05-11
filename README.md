@@ -93,3 +93,5 @@ There is mock data available for testing in the `mockData` folder.
 - time limitations and experience
 
 - SEO considered in the head
+
+- opted to write my own code for read more section as opposed to a third party resource

@@ -3,7 +3,11 @@ export const truncateDescription = (description) => {
     // assumming <\/p> is at the right location
     // test
     // 5798103 - check bosch texts
-    return description.slice(0, index)
+
+    // description.slice(0, index)
+    // description.slice(index)
+
+    return [description.slice(0, index), description.slice(index)]
   }
 
   export const sortAttributesAlphabetically = (x, y) => {
