@@ -8,7 +8,7 @@ We have started the project, but we'd like you to finish it off to a production-
 
 ### Product Grid
 
-When the website is launched, the customer will be presented with a grid of dishwashers that are currently available for customers to buy. 
+When the website is launched, the customer will be presented with a grid of dishwashers that are currently available for customers to buy.
 
 For this exercise we’d be looking at only displaying the first 20 results returned by the API.
 
@@ -47,24 +47,29 @@ There is mock data available for testing in the `mockData` folder.
 - Run the development server with `npm run dev`
 - Open [http://localhost:3000](http://localhost:3000) with your browser.
 
-
 ## Tests
+
 - use of insomnia to consume data and test API
 - use of Git to work in sections and test as went along
 - found inconsistencies of mock data and api data - e.g. id's in product attributes
 
 ## Assumptions
-- too much detail on product information - 
+
+- too much detail on product information -
 
 ## Notes
+
 - Netherworld Syntax unknown - layout component moved down a level for bespoke functions
 
 ## Instructions
 
-## Improvement suggestions 
+## Improvement suggestions
+
 - Bespoke Headers for pages - e.g. Home page and product pages
+- single source of price information
 
 ## To Do
+
 - All styling (mobile first)
 - Tablet Styling
 - Desktop Styling
@@ -73,13 +78,13 @@ There is mock data available for testing in the `mockData` folder.
 - data.price.now - coming from wrong API - see [id]
 - styling to carousel
 - remove duplicates from api results
-~~- alphabetise product spec results~~
-- spell check 5817337 has spelling error in 
+  ~~- alphabetise product spec results~~
+- spell check 5817337 has spelling error in
 
 # Third Party Code Used
 
-- Axios - combine get and json formatting 
-- React-responsive Carousel 
+- Axios - combine get and json formatting
+- React-responsive Carousel
 - time limitations and experience
 
-
+- SEO considered in the head

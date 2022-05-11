@@ -3,23 +3,33 @@ import Head from "next/head";
 import Link from "next/link";
 
 const Layout = ({ children, home }) => {
+  const siteTitle = "Dishwashers | John Lewis &amp; Partners";
+
   // const Layout = ({ children, type }) => {
   return (
     <>
       <Head>
-        {/* <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/favicon.ico" />
         <meta
           name="description"
-          content="Learn how to build a personal website using Next.js"
+          content="Shop for Dishwashers at John Lewis &amp; Partners. Free UK mainland delivery when you spend £50 and over."
         />
+        <meta property="og:site_name" content="John Lewis &amp; Partners" />
+        <meta property="og:url" content="http://localhost:3001/" />
         <meta
           property="og:image"
-          content={`https://og-image.vercel.app/${encodeURI(
-            siteTitle
-          )}.png?theme=light&md=0&fontSize=75px&images=https%3A%2F%2Fassets.vercel.com%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fnextjs-black-logo.svg`}
+          content={`https://johnlewis.scene7.com/is/image/JohnLewis/240251284?`}
         />
-        <meta name="og:title" content={siteTitle} />
-        <meta name="twitter:card" content="summary_large_image" /> */}
+        <meta property="og:image:type" content="image/jpeg" />
+        <meta property="og:type" content="website" />
+        <meta property="og:locale" content="en_GB" />
+        <meta property="og:title" content={siteTitle} />
+        <meta
+          property="og:description"
+          content="Shop for Dishwashers at John Lewis &amp; Partners. Free UK mainland delivery when you spend £50 and over."
+        />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@JLandPartners" />
       </Head>
 
       <header className="styles.navbar">

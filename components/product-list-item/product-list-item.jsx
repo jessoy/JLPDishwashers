@@ -4,7 +4,7 @@ const ProductListItem = ({ image, price, description }) => {
   return (
     <div className={styles.content}>
       <div>
-        <img src={image} alt="jessie" style={{ width: "100%" }} />
+        <img src={image} alt={description} style={{ width: "100%" }} />
       </div>
       <div>{description}</div>
       <div className={styles.price}>{price}</div>

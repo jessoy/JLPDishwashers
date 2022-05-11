@@ -53,21 +53,21 @@ const ProductDetail = ({ data }) => {
         {/* price div  */}
         {/* this div only to move over in portrait mode */}
         <div>
-          <h1>&#163;{data.price.now}</h1>
+          <h2>&#163;{data.price.now}</h2>
 
-          <h3>{data.displaySpecialOffer}</h3>
-          <h3>{data.additionalServices.includedServices}</h3>
+          <h4>{data.displaySpecialOffer}</h4>
+          <h4 className={styles.includedServices}>{data.additionalServices.includedServices}</h4>
         </div>
 
         <div>
           {/* descriptive div */}
           <h3>Product information</h3>
 
-          <div
+          <p
             dangerouslySetInnerHTML={{
               __html: truncateDescription(data.details.productInformation),
             }}
-          ></div>
+          ></p>
           {/* too big - reduce this text */}
           <p>Product code: {data.code}</p>
         </div>

@@ -10,15 +10,35 @@ body {
   box-sizing: border-box;
 }
 
+:root {
+  --black-color-carousel: #000;
+  --grey-color-carousel: #999;
+  --red-color: #db003e;
+  --green-color: #3c5e48;
+  --light-grey-color: #d8d8d8;
+  --medium-grey-color: #6b6b6b;
+  --dark-grey-color: #141414;
+}
 
-h1 {
-  color: #141414;
+@mixin text-formatting {
+  color: var(--dark-grey-color);
   margin-top: 0;
-  font-size: 22px;
+  font-size: 16px;
   font-weight: 400;
+  letter-spacing: normal;
+  line-height: 20px;
+}
+
+//titles
+h1 {
+  @include text-formatting();
+  color: var(--medium-grey-color);
+  font-size: 22px;
+  // font-weight: 400;
+  font-weight: 200;
   line-height: 30px;
   letter-spacing: 1.56px;
-  text-transform: uppercase;
+  // text-transform: uppercase;
   text-align: center;
   margin-bottom: 24px;
 }
@@ -30,66 +50,62 @@ h1 {
     line-height: 38px;
   }
 }
+
+//price
 h2 {
-  color: #141414;
-  margin-top: 0;
+  @include text-formatting();
   font-size: 22px;
-  font-weight: 200;
   line-height: 30px;
   letter-spacing: initial;
   text-transform: none;
 }
 
+// subheading
 h3 {
-  color: #141414;
-  margin-top: 0;
-  font-size: 16px;
-  font-weight: 400;
-  letter-spacing: 1.07px;
-  line-height: 20px;
-  text-transform: uppercase;
-}
-
-h4 {
-  color: #141414;
-  margin-top: 0;
-  font-size: 16px;
-  font-weight: 400;
-  letter-spacing: normal;
-  line-height: 20px;
-}
-
-h5 {
-  color: #141414;
-  margin-top: 0;
-  font-size: 16px;
-  font-weight: 400;
-  letter-spacing: normal;
-  line-height: 20px;
-}
-
-h6 {
-  color: #141414;
-  margin-top: 0;
-  font-size: 16px;
-  font-weight: 400;
-  letter-spacing: normal;
-  line-height: 20px;
-}
-
-p {
-  color: #141414;
-  margin-top: 0;
-  font-size: 16px;
+  @include text-formatting();
+  color: var(--medium-grey-color);
+  font-size: 22px;
   font-weight: 200;
-  letter-spacing: normal;
-  line-height: 20px;
+  letter-spacing: 1.07px;
+  // text-transform: uppercase;
+}
+
+// special
+h4 {
+  @include text-formatting();
+  color: var(--red-color);
+}
+
+//homepage price bold
+h5 {
+  @include text-formatting();
+}
+
+// paragraph text
+p {
+  @include text-formatting();
+  font-weight: 200;
+}
+
+li {
+  color: var(--medium-grey-color);
+  line-height: 38px;
+  border-top: 1px solid var(--light-grey-color);
 }
 
 @font-face {
   font-family: "GillSansforJL";
   src: url("https://www.johnlewis.com/static/core/fonts/GillSansNovaforJLW01Lt.eot");
-  src: url("https://www.johnlewis.com/static/core/fonts/GillSansNovaforJLW01Lt.eot?#iefix") format("embedded-opentype"), url("https://www.johnlewis.com/static/core/fonts/GillSansNovaforJLW01Lt.woff2") format("woff2"), url("https://www.johnlewis.com/static/core/fonts/GillSansNovaforJLW01Lt.woff") format("woff"), url("https://www.johnlewis.com/static/core/fonts/GillSansNovaforJLW01Lt.ttf") format("truetype"), url("https://www.johnlewis.com/static/core/fonts/GillSansNovaforJLW01Lt.svg#jlicons") format("svg");
+  src: url("https://www.johnlewis.com/static/core/fonts/GillSansNovaforJLW01Lt.eot?#iefix")
+      format("embedded-opentype"),
+    url("https://www.johnlewis.com/static/core/fonts/GillSansNovaforJLW01Lt.woff2")
+      format("woff2"),
+    url("https://www.johnlewis.com/static/core/fonts/GillSansNovaforJLW01Lt.woff")
+      format("woff"),
+    url("https://www.johnlewis.com/static/core/fonts/GillSansNovaforJLW01Lt.ttf")
+      format("truetype"),
+    url("https://www.johnlewis.com/static/core/fonts/GillSansNovaforJLW01Lt.svg#jlicons")
+      format("svg");
   font-weight: 200;
   font-style: normal;
   font-display: swap;
@@ -97,7 +113,16 @@ p {
 @font-face {
   font-family: "GillSansforJL";
   src: url("https://www.johnlewis.com/static/core/fonts/GillSansNovaforJLW01Md.eot");
-  src: url("https://www.johnlewis.com/static/core/fonts/GillSansNovaforJLW01Md.eot?#iefix") format("embedded-opentype"), url("https://www.johnlewis.com/static/core/fonts/GillSansNovaforJLW01Md.woff2") format("woff2"), url("https://www.johnlewis.com/static/core/fonts/GillSansNovaforJLW01Md.woff") format("woff"), url("https://www.johnlewis.com/static/core/fonts/GillSansNovaforJLW01Md.ttf") format("truetype"), url("https://www.johnlewis.com/static/core/fonts/GillSansNovaforJLW01Md.svg#jlicons") format("svg");
+  src: url("https://www.johnlewis.com/static/core/fonts/GillSansNovaforJLW01Md.eot?#iefix")
+      format("embedded-opentype"),
+    url("https://www.johnlewis.com/static/core/fonts/GillSansNovaforJLW01Md.woff2")
+      format("woff2"),
+    url("https://www.johnlewis.com/static/core/fonts/GillSansNovaforJLW01Md.woff")
+      format("woff"),
+    url("https://www.johnlewis.com/static/core/fonts/GillSansNovaforJLW01Md.ttf")
+      format("truetype"),
+    url("https://www.johnlewis.com/static/core/fonts/GillSansNovaforJLW01Md.svg#jlicons")
+      format("svg");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
