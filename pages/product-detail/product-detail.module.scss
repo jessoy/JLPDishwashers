@@ -19,16 +19,8 @@
 .content {
   width: 100%;
   padding: 0 15px 0 40px;
-  // padding-left: 40px;
 }
 
-// .imageCarousel,
-// .priceInfo,
-// .description,
-// .moreInfo,
-// .specification {
-//   margin-left: 40px;
-// }
 
 .priceInfo {
   h4,
@@ -61,6 +53,8 @@
   .listValues {
     max-width: 50%;
     text-align: right;
+    line-height: 1rem;
+    margin: 0.825rem 0;
   }
 }
 
@@ -99,21 +93,13 @@
     }
 
     .moreInfo {
-      // display: block;
-
-      // DELETE
-      // padding: 25px 25px 25px 0;
-
       display: flex;
-      // flex-direction: row;
-      // justify-content: space-between;
     }
 
     .priceInfo {
       margin: 0;
       padding: 25px 40px;
       width: 35%;
-      // min-height: 100vh;
     }
   }
 }

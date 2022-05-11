@@ -97,9 +97,7 @@ const ProductDetail = ({ data }) => {
             {data.details.features[0].attributes
               .sort(sortAttributesAlphabetically)
               .map((item) => (
-                // unique key added
                 <li key={data.productId + item.name}>
-                  {/* no id in api data  */}
                   <div className={styles.listContainer}>
                     <div dangerouslySetInnerHTML={{ __html: item.name }}></div>
                     <div className={styles.listValues}>

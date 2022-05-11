@@ -82,18 +82,22 @@ There is mock data available for testing in the `mockData` folder.
 ~~- remove duplicates from api results~~
 ~~- alphabetise product spec results~~
 - spell check 5817337 has spelling error in
+- bosch text is wrong
 - homepage - replace images with png
 - check resolution of images on homepage
 ~~- read more section~~
 ~~- product code switched on landscape tablet and above sizes~~
+- check dishwashers are available
+- split into more components
+- reduce specifications - have a top selection and ability to show more
 
-# Third Party Code Used
+
+## Third Party Code Used
 
 - Axios - combine get and json formatting
 - React-responsive Carousel
 - time limitations and experience
 
+## Features 
 - SEO considered in the head
-
-- opted to write my own code for read more section as opposed to a third party resource
-- read more uses state 
+- read more section written first hand as opposed to a third party resource - uses state to show / hide more text
