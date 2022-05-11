@@ -71,7 +71,7 @@ h1 {
 //price - detail page
 h2 {
   @include text-formatting();
-  font-size: 1.375rem;
+  font-size: 1.7rem;
   line-height: 1.875rem;
   letter-spacing: initial;
   text-transform: none;
@@ -89,6 +89,8 @@ h3 {
 h4 {
   @include text-formatting();
   color: var(--red-color);
+  font-size: 1.1rem;
+  line-height: 1.45rem;
 }
 
 //homepage price bold
@@ -101,7 +103,7 @@ h6 {
   @include text-formatting();
   font-size: 1.1rem;
   margin: 0;
-  line-height: 0.1rem;
+  // line-height: 0.1rem;
   color: var(--dark-grey-color)
 }
 

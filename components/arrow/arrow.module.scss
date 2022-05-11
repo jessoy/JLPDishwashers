@@ -1,0 +1,22 @@
+.arrow {
+    padding-left: 8px;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+  }
+
+.top,
+.bottom {
+  width: 0.8rem;
+  height: 0.05rem;
+  margin: 0.35rem;
+  background-color: black;
+}
+
+.top {
+  transform: translate(0, 0.15rem) rotate(-50deg);
+}
+
+.bottom {
+  transform: translate(0, 0rem) rotate(50deg);
+}

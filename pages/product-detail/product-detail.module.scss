@@ -9,29 +9,6 @@
       width: 95%;
     }
   }
-
-  .arrow {
-    padding-left: 8px;
-    display: flex;
-    flex-direction: column;
-    cursor: pointer;
-  }
-}
-
-.top,
-.bottom {
-  width: 0.8rem;
-  height: 0.05rem;
-  margin: 0.35rem;
-  background-color: black;
-}
-
-.top {
-  transform: translate(0, 0.15rem) rotate(-50deg);
-}
-
-.bottom {
-  transform: translate(0, 0rem) rotate(50deg);
 }
 
 .includedServices {
@@ -44,7 +21,7 @@
 }
 .content {
   width: 100%;
-  margin: 0 15px;
+  padding: 0 15px;
 }
 
 .imageCarousel,
@@ -111,20 +88,32 @@
       border-right: solid 1px var(--light-grey-color);
     }
 
-    .description {
+    .description,
+    .imageCarousel {
       padding-right: 40px;
     }
 
+    .description {
+      .code {
+        display: flex;
+        flex-direction: column-reverse;
+      }
+    }
+
     .moreInfo {
-      display: block;
-      padding: 25px 0;
+      // display: block;
+      padding: 25px 25px 25px 0;
+
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
     }
 
     .priceInfo {
       margin: 0;
       padding: 25px 40px;
       width: 35%;
-      min-height: 100vh;
+      // min-height: 100vh;
     }
   }
 }

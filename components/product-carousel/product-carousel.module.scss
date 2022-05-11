@@ -3,7 +3,9 @@
   text-align: center;
   padding: 1rem;
 
-  .li {
-    border-top: 1px solid red;
+  :global(.carousel .control-dots .dot) {
+    background-color: var(--black-color-carousel);
   }
+
+
 }

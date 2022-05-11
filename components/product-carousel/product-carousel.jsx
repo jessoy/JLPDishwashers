@@ -2,12 +2,10 @@ import React, { Component } from "react";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
 import styles from "./product-carousel.module.scss";
-import Image from "next/image";
 
 // imported third party carousel package
 
 const ProductCarousel = ({ imageUrls }) => {
-  // console.log(imageUrls);
 
   imageUrls.map((url, index) => {
     return (
@@ -25,8 +23,9 @@ const ProductCarousel = ({ imageUrls }) => {
         showThumbs={false}
         // autoPlay
         infiniteLoop="true"
-        // stopOnHover="true"
+        stopOnHover="true"
         showStatus={false}
+        showArrows={false}
         style={{ width: "100%", maxWidth: "500px" }}
       >
         {!imageUrls

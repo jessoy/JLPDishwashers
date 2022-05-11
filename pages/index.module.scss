@@ -5,8 +5,8 @@
   font-weight: 200;
   line-height: 20px;
   font-family: GillSansforJL, Gill Sans, Gill Sans MT, Arial, Helvetica, sans-serif;
-  border-bottom: solid 1px var(--light-grey-color);
-  border-right: solid 1px var(--light-grey-color);
+  border-top: solid 1px var(--light-grey-color);
+  border-left: solid 1px var(--light-grey-color);
 }
 
 //portrait phone
@@ -20,7 +20,7 @@
 @media screen and (min-width: 641px) {
   .content {
     grid-template-columns: repeat(3, 1fr);
-  border-right: solid 1px var(--light-grey-color);
+  border-left: solid 1px var(--light-grey-color);
   }
 }
 

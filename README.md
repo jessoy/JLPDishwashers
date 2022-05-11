@@ -52,6 +52,7 @@ There is mock data available for testing in the `mockData` folder.
 - use of insomnia to consume data and test API
 - use of Git to work in sections and test as went along
 - found inconsistencies of mock data and api data - e.g. id's in product attributes
+- tested for duplicates in mock data
 
 ## Assumptions
 
@@ -71,17 +72,19 @@ There is mock data available for testing in the `mockData` folder.
 ## To Do
 
 - All styling (mobile first)
-- Tablet Styling
-- Desktop Styling
+~~- Tablet Styling~~
+~~- Desktop Styling~~
 - Security - Api consumption to API folder - hidden back end - hide information from customers
 - security - dangerously set inner html
 - data.price.now - coming from wrong API - see [id]
-- styling to carousel
-- remove duplicates from api results
-  ~~- alphabetise product spec results~~
+~~- styling to carousel~~
+~~- remove duplicates from api results~~
+~~- alphabetise product spec results~~
 - spell check 5817337 has spelling error in
 - homepage - replace images with png
 - check resolution of images on homepage
+- read more section
+~~- product code switched on landscape tablet and above sizes~~
 
 # Third Party Code Used
 

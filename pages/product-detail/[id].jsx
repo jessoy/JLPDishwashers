@@ -9,6 +9,7 @@ import {
   sortAttributesAlphabetically,
 } from "../../utils/general";
 import { productDetailsAPI } from "../../config/general";
+import Arrow from "../../components/arrow/arrow";
 
 export async function getServerSideProps(context) {
   const id = context.params.id;
@@ -26,6 +27,7 @@ export async function getServerSideProps(context) {
 }
 
 const ProductDetail = ({ data }) => {
+  console.log(data.media.images.urls);
   return (
     // head required for SEO
     <Layout>
@@ -38,27 +40,27 @@ const ProductDetail = ({ data }) => {
 
       {/* header */}
       <div className={styles.header}>
-   
         <h1>
-        <Link href="/">
-          <div className={styles.arrow}>
-            <div className={styles.top}></div>
-            <div className={styles.bottom}></div>
-          </div>
-        </Link>
-          <div dangerouslySetInnerHTML={{ __html: data.title }} className={styles.title}/>
-        {/* <div>x</div> */}
+          <Link href="/">
+            <div>
+              <Arrow />
+            </div>
+          </Link>
+          <div
+            dangerouslySetInnerHTML={{ __html: data.title }}
+            className={styles.title}
+          />
         </h1>
       </div>
 
-  {/* body  */}
+      {/* body  */}
       <div className={styles.content}>
+        {/* image carousel  */}
+        <div className={styles.imageCarousel}>
+          <ProductCarousel imageUrls={data.media.images.urls} />
+        </div>
 
-  {/* image carousel  */}
-        <div className={styles.imageCarousel}><ProductCarousel imageUrls={data.media.images.urls} />
-</div>
-  {/* price info  */}
-        {/* switched div and h3 labels */}
+        {/* price info  */}
         <div className={styles.priceInfo}>
           <h2>&#163;{data.price.now}</h2>
 
@@ -68,26 +70,30 @@ const ProductDetail = ({ data }) => {
           </h4>
         </div>
 
-  {/* descriptive div */}
+        {/* descriptive div */}
         <div className={styles.description}>
           <h3>Product information</h3>
-
-          <p
-            dangerouslySetInnerHTML={{
-              __html: truncateDescription(data.details.productInformation),
-            }}
-          ></p>
-          {/* too big - reduce this text */}
-          <p>Product code: {data.code}</p>
+          <div className={styles.code}>
+            <p
+              dangerouslySetInnerHTML={{
+                __html: truncateDescription(data.details.productInformation),
+              }}
+            ></p>
+            <p>Product code: {data.code}</p>
+          </div>
         </div>
 
-  {/* more info Div  */}
-  <div className={styles.moreInfo}>
-    <h6>Read more</h6>
-  </div>
-        {/* TBC  */}
+        {/* more info Div  */}
+        <div className={styles.moreInfo}>
+          <h6>Read more</h6>
+          <div>
+              <div onClick>
+                <Arrow />
+              </div>
+          </div>
+        </div>
 
-  {/* specification div */}
+        {/* specification div */}
         <div className={styles.specification}>
           <h3>Product specification</h3>
           <ul>
@@ -99,14 +105,15 @@ const ProductDetail = ({ data }) => {
                 <li key={data.productId + item.name}>
                   {/* no id in api data  */}
                   <div className={styles.listContainer}>
-                    <div dangerouslySetInnerHTML={{ __html: item.name }} ></div>
-                    <div className={styles.listValues}>{item.values.join(", ") || item.value}</div>
+                    <div dangerouslySetInnerHTML={{ __html: item.name }}></div>
+                    <div className={styles.listValues}>
+                      {item.values.join(", ") || item.value}
+                    </div>
                   </div>
                 </li>
               ))}
           </ul>
         </div>
-
       </div>
     </Layout>
   );

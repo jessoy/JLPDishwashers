@@ -5,16 +5,17 @@ import ProductListItem from "../components/product-list-item/product-list-item";
 import axios from "axios";
 import Layout, { siteTitle } from "../components/layout/layout";
 import { productsAPI } from "../config/general";
+import { restrictAPIResponse } from "../utils/general";
 
 // axios for experience and auto-Json functionality
 // runs on every request
 export async function getServerSideProps() {
   const response = await axios.get(productsAPI);
-  const data = response.data;
+  const items = restrictAPIResponse(response.data.products, 20)
 
   return {
     props: {
-      data,
+      items,
     },
   };
 }
@@ -30,8 +31,7 @@ export async function getServerSideProps() {
 //   }
 // }
 
-const Home = ({ data }) => {
-  let items = data.products;
+const Home = ({ items }) => {
   // console.log(siteTitle)
 
   return (
@@ -39,7 +39,7 @@ const Home = ({ data }) => {
       <Head>
         <title>Dishwashers | JL &amp; Partners </title>
         <meta name="keywords" content="shopping" />
-        <meta name="description" content={data.pageInformation.title} />
+        {/* <meta name="description" content={data.pageInformation.title} /> */}
         {/* how to change out /null/ to dishwashers */}
         {/* query keywords */}
       </Head>
