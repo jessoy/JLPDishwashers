@@ -1,27 +1,137 @@
+.header {
+  h1 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin: 0.8rem 0;
+
+    .title {
+      width: 95%;
+    }
+  }
+
+  .arrow {
+    padding-left: 8px;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+  }
+}
+
 .top,
 .bottom {
-  width: 1.4rem;
-  height: 0.15rem;
+  width: 0.8rem;
+  height: 0.05rem;
   margin: 0.35rem;
   background-color: black;
 }
 
 .top {
-  transform: translate(0, 0.4rem) rotate(-45deg);
+  transform: translate(0, 0.15rem) rotate(-50deg);
 }
 
 .bottom {
-  transform: translate(0, 0.4rem) rotate(45deg);
-}
-
-.arrow {
-  display: flex;
-  flex-direction: column;
-  cursor: pointer;
+  transform: translate(0, 0rem) rotate(50deg);
 }
 
 .includedServices {
   color: #3c5e48;
+  font-size: 0.875rem;
 }
 
+// potrait tablet
+@media only screen and (min-width: 641px) {
+}
+.content {
+  width: 100%;
+  margin: 0 15px;
+}
 
+.imageCarousel,
+.priceInfo,
+.description,
+.moreInfo,
+.specification {
+  margin-left: 40px;
+}
+
+.priceInfo {
+  h4,
+  h2 {
+    margin: 0;
+  }
+}
+
+.description {
+  padding-top: 50px;
+}
+
+.moreInfo {
+  display: none;
+}
+
+.specification {
+  // padding-right: 25px;
+  padding: 25px 40px 0 0;
+
+  .listContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .listValues {
+    max-width: 50%;
+    text-align: right;
+    // line-height: 1rem;
+  }
+}
+
+.moreInfo,
+.specification {
+  width: 100%;
+  border-top: solid 1px var(--light-grey-color);
+}
+
+//landscape tablet
+@media screen and (min-width: 768px) {
+  .content {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    border-top: solid 1px var(--light-grey-color);
+
+    .imageCarousel,
+    .description,
+    .moreInfo,
+    .specification {
+      max-width: 58%;
+      border-right: solid 1px var(--light-grey-color);
+    }
+
+    .description {
+      padding-right: 40px;
+    }
+
+    .moreInfo {
+      display: block;
+      padding: 25px 0;
+    }
+
+    .priceInfo {
+      margin: 0;
+      padding: 25px 40px;
+      width: 35%;
+      min-height: 100vh;
+    }
+  }
+}
+
+//desktop
+@media screen and (min-width: 1024px) {
+  .content {
+    max-width: 1024px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}

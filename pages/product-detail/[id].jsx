@@ -15,13 +15,13 @@ export async function getServerSideProps(context) {
   try {
     let response = await axios.get(productDetailsAPI + id);
     const data = response.data;
-    
+
     return {
       props: { data },
     };
   } catch (error) {
-    console.log(error)
-    return {error}
+    console.log(error);
+    return { error };
   }
 }
 
@@ -36,31 +36,40 @@ const ProductDetail = ({ data }) => {
         {/* add description here - short description */}
       </Head>
 
-      <Link href="/">
-        <div className={styles.arrow}>
-          <div className={styles.top}></div>
-          <div className={styles.bottom}></div>
-        </div>
-      </Link>
-      <h1>
-        <div dangerouslySetInnerHTML={{ __html: data.title }} />
-      </h1>
-      <div>
-        {/* <ProductCarousel image={data.media.images.urls[0]} /> */}
-        <ProductCarousel imageUrls={data.media.images.urls} />
+      {/* header */}
+      <div className={styles.header}>
+   
+        <h1>
+        <Link href="/">
+          <div className={styles.arrow}>
+            <div className={styles.top}></div>
+            <div className={styles.bottom}></div>
+          </div>
+        </Link>
+          <div dangerouslySetInnerHTML={{ __html: data.title }} className={styles.title}/>
+        {/* <div>x</div> */}
+        </h1>
+      </div>
 
+  {/* body  */}
+      <div className={styles.content}>
+
+  {/* image carousel  */}
+        <div className={styles.imageCarousel}><ProductCarousel imageUrls={data.media.images.urls} />
+</div>
+  {/* price info  */}
         {/* switched div and h3 labels */}
-        {/* price div  */}
-        {/* this div only to move over in portrait mode */}
-        <div>
+        <div className={styles.priceInfo}>
           <h2>&#163;{data.price.now}</h2>
 
           <h4>{data.displaySpecialOffer}</h4>
-          <h4 className={styles.includedServices}>{data.additionalServices.includedServices}</h4>
+          <h4 className={styles.includedServices}>
+            {data.additionalServices.includedServices}
+          </h4>
         </div>
 
-        <div>
-          {/* descriptive div */}
+  {/* descriptive div */}
+        <div className={styles.description}>
           <h3>Product information</h3>
 
           <p
@@ -72,23 +81,32 @@ const ProductDetail = ({ data }) => {
           <p>Product code: {data.code}</p>
         </div>
 
-        {/* specification div */}
-        <h3>Product specification</h3>
-        <ul>
-          {/* attributes sorted alphabetically and then displayed */}
-          {data.details.features[0].attributes
-            .sort(sortAttributesAlphabetically)
-            .map((item) => (
-              // unique key added
-              <li key={data.productId + item.name}>
-                {/* no id in api data  */}
-                <div>
-                  <div dangerouslySetInnerHTML={{ __html: item.name }} />
-                  {item.values.join(", ") || item.value}
-                </div>
-              </li>
-            ))}
-        </ul>
+  {/* more info Div  */}
+  <div className={styles.moreInfo}>
+    <h6>Read more</h6>
+  </div>
+        {/* TBC  */}
+
+  {/* specification div */}
+        <div className={styles.specification}>
+          <h3>Product specification</h3>
+          <ul>
+            {/* attributes sorted alphabetically and then displayed */}
+            {data.details.features[0].attributes
+              .sort(sortAttributesAlphabetically)
+              .map((item) => (
+                // unique key added
+                <li key={data.productId + item.name}>
+                  {/* no id in api data  */}
+                  <div className={styles.listContainer}>
+                    <div dangerouslySetInnerHTML={{ __html: item.name }} ></div>
+                    <div className={styles.listValues}>{item.values.join(", ") || item.value}</div>
+                  </div>
+                </li>
+              ))}
+          </ul>
+        </div>
+
       </div>
     </Layout>
   );
