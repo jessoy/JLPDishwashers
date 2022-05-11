@@ -71,8 +71,11 @@
 }
 
 .specification {
-  // padding-right: 25px;
   padding: 25px 40px 0 0;
+
+  li {
+    border-top: 1px solid var(--light-grey-color);
+  }
 
   .listContainer {
     display: flex;
@@ -83,7 +86,6 @@
   .listValues {
     max-width: 50%;
     text-align: right;
-    // line-height: 1rem;
   }
 }
 
