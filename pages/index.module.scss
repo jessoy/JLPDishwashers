@@ -1,18 +1,38 @@
 .content {
   display: grid;
-  gap: 1px;
-  background-color: #dddddd;
-  color: black;
-  padding: 1px ;
+  gap: 0;
+  // background-color: #dddddd;
+  // color: black;
+  // padding: 1px ;
   font-weight: 200;
-  letter-spacing: normal;
+  // letter-spacing: normal;
   line-height: 20px;
   font-family: GillSansforJL, Gill Sans, Gill Sans MT, Arial, Helvetica, sans-serif;
+  border-bottom: solid 1px var(--light-grey-color);
+  border-right: solid 1px var(--light-grey-color);
+  grid-template-columns: repeat(2, 1fr);
 }
 
+// potrait tablet
+@media screen and (min-width: 641px) {
+  .content {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+//landscape tablet
 @media screen and (min-width: 768px) {
   .content {
     grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+//desktop
+@media screen and (min-width: 1024px) {
+  .content {
+    max-width: 1024px;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 
@@ -21,11 +41,6 @@
   text-decoration: none;
   display: block;
   background: white;
-}
-
-.content {
-  background-color: #fff;
-  padding: 25px;
 }
 
 .price {

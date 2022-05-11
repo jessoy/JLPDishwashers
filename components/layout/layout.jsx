@@ -33,7 +33,7 @@ const Layout = ({ children, home }) => {
       </Head>
 
       <header className="styles.navbar">
-        {home ? <h1>Homepage Header</h1> : <h1>Product Page Header</h1>}
+        {/* {home ? <h1>Homepage Header</h1> : <h1>Product Page Header</h1>} */}
         <div className={styles.content}>
           <main className={styles.main}>
             <div>

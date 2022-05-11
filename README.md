@@ -80,6 +80,8 @@ There is mock data available for testing in the `mockData` folder.
 - remove duplicates from api results
   ~~- alphabetise product spec results~~
 - spell check 5817337 has spelling error in
+- homepage - replace images with png
+- check resolution of images on homepage
 
 # Third Party Code Used
 
