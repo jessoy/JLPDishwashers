@@ -34,3 +34,9 @@ export const replaceNull = (string, replacementString) => {
   const index = string.indexOf('"null"');
   return `${replacementString} ${string.slice(index + 7)}`;
 };
+
+// finds string with no space after a full stop and inserts a full stop
+export const putSpaceAfterFullStop = (string) => {
+  const newString = string.replace(/\.(?=[^\d])[ ]*/g, ". ");
+  return(newString);
+};

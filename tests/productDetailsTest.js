@@ -1,4 +1,3 @@
-const { Console } = require("console");
 const fs = require("fs");
 let fileText = fs.readFileSync("../mockData/data2.json");
 let data = JSON.parse(fileText);
@@ -21,12 +20,12 @@ const testForAvailability = () => {
         availabilityStatus
       );
       success = false;
+      return false;
     } else {
+      return true;
     }
   }
 };
-
-testForAvailability();
 
 // test for typos in product description
 success = true;
@@ -68,6 +67,12 @@ const checkCharAfterFullStop = (productInformation) => {
 // checkCharAfterFullStop(productInformation)
 
 testForFullStopErrorsInText();
+
+test("test availabilty of mock data", () => {
+  expect(testForAvailability()).toBe(true);
+})
+
+
 
 if (success === true) {
   console.log("All tests successful");
