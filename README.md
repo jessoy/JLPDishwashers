@@ -72,7 +72,7 @@ There is mock data available for testing in the `mockData` folder.
 
 ## To Do
 
-- All styling (mobile first)
+~~- All styling (mobile first)~~
 ~~- Tablet Styling~~
 ~~- Desktop Styling~~
 - Security - Api consumption to API folder - hidden back end - hide information from customers

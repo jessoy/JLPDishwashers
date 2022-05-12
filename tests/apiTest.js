@@ -3,6 +3,7 @@ let fileText = fs.readFileSync('../mockData/data.json');
 let jsonParsed = JSON.parse(fileText);
 
 let data = jsonParsed.products
+console.log(data)
 
 let success = true;
 
@@ -39,3 +40,6 @@ if (success === true) {
 
 // spell check
 // typos eg not ". " no space
+
+// test for spaces missing between full stops
+
