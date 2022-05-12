@@ -69,6 +69,7 @@ There is mock data available for testing in the `mockData` folder.
 - Bespoke Headers for pages - e.g. Home page and product pages
 - single source of price information
 - png images
+- Look into Tab index for accessibility 
 
 ## To Do
 
@@ -96,8 +97,9 @@ There is mock data available for testing in the `mockData` folder.
 
 - Axios - combine get and json formatting
 - React-responsive Carousel
-- time limitations and experience
+- because of time limitations and experience
 
 ## Features 
 - SEO considered in the head
 - read more section written first hand as opposed to a third party resource - uses state to show / hide more text
+- manipulating api data to show first paragraph only in description - break at paragraph (not number of characters)

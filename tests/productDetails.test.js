@@ -1,12 +1,7 @@
-const { Console } = require("console");
 const fs = require("fs");
-let fileText = fs.readFileSync("../mockData/data2.json");
+
+let fileText = fs.readFileSync("mockData/data2.json");
 let data = JSON.parse(fileText);
-
-// let data = jsonParsed.products
-// console.log(data)
-
-let success = true;
 
 const { detailsData } = data;
 
@@ -20,26 +15,32 @@ const testForAvailability = () => {
         "availability status",
         availabilityStatus
       );
-      success = false;
+      return false;
     } else {
+      return true;
     }
   }
 };
 
-testForAvailability();
+test("test all mock data dishwashers are available", () => {
+  expect(testForAvailability()).toBe(true);
+})
+
+
 
 // test for typos in product description
-success = true;
+// success = true;
 const testForFullStopErrorsInText = () => {
   for (let i = 0; i < detailsData.length; i++) {
     const productInformation = detailsData[i].details.productInformation;
+    // let success;
 
-    checkCharAfterFullStop(productInformation);
-
-    if (!success) {
+    if(!checkCharAfterFullStop(productInformation)) {
       // success = false
       console.log(detailsData[i].productId, "productInformation malformed");
-      return;
+      return false;
+    } else {
+      return true
     }
   }
 };
@@ -56,8 +57,8 @@ const checkCharAfterFullStop = (productInformation) => {
     // console.log(index, productInformation[index]);
     // productInformation = productInformation.slice(index)
     // checkCharAfterFullStop(productInformation)
-    success = false;
-    return;
+    // success = false;
+    return false;
   } else {
     // console.log(productInformation[index])
     productInformation = productInformation.slice(index);
@@ -65,10 +66,7 @@ const checkCharAfterFullStop = (productInformation) => {
   }
 };
 
-// checkCharAfterFullStop(productInformation)
+test("test for spaces after full stops in descriptions", () => {
+  expect(testForFullStopErrorsInText()).toBe(true);
+})
 
-testForFullStopErrorsInText();
-
-if (success === true) {
-  console.log("All tests successful");
-}

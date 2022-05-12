@@ -3,6 +3,10 @@
   border-right: solid 1px var(--light-grey-color);
   border-bottom: solid 1px var(--light-grey-color);
   height: 100%;
+
+  p {
+    margin: 0;
+  }
 }
 
 .price {

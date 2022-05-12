@@ -3,11 +3,9 @@ import styles from "./product-list-item.module.scss";
 const ProductListItem = ({ image, price, description }) => {
   return (
     <div className={styles.content}>
-      <div>
-        <img src={image} alt={description} style={{ width: "100%" }} />
-      </div>
-      <div>{description}</div>
-      <div className={styles.price}>{price}</div>
+      <img src={image} alt={description} style={{ width: "100%" }} />
+      <p>{description}</p>
+      <p className={styles.price}>{price}</p>
     </div>
   );
 };

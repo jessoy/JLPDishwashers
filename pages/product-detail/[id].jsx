@@ -7,6 +7,7 @@ import styles from "./product-detail.module.scss";
 import {
   truncateDescription,
   sortAttributesAlphabetically,
+  putSpaceAfterFullStop,
 } from "../../utils/general";
 import { productDetailsAPI } from "../../config/general";
 import Arrow from "../../components/arrow/arrow";
@@ -28,6 +29,7 @@ export async function getServerSideProps(context) {
 }
 
 const ProductDetail = ({ data }) => {
+  // console.log(data)
   return (
     <Layout>
       <Head>
@@ -37,26 +39,27 @@ const ProductDetail = ({ data }) => {
         <meta name="og:description" content={data.skus[0].skuTitle} />
       </Head>
 
-      {/* header */}
-      <div className={styles.header}>
-        <h1>
-          <Link href="/">
-            <div>
-              <Arrow />
-            </div>
-          </Link>
-          <div
-            dangerouslySetInnerHTML={{ __html: data.title }}
-            className={styles.title}
-          />
-        </h1>
-      </div>
+      <header className={styles.header}>
+        <Link href="/">
+          <div>
+            <Arrow />
+          </div>
+        </Link>
+        <h1
+          dangerouslySetInnerHTML={{ __html: data.title }}
+          className={styles.title}
+        />
+      </header>
 
       {/* body  */}
       <div className={styles.content}>
+        
         {/* image carousel  */}
         <div className={styles.imageCarousel}>
-          <ProductCarousel imageUrls={data.media.images.urls} />
+          <ProductCarousel
+            imageUrls={data.media.images.urls}
+            imageDescription={data.title}
+          />
         </div>
 
         {/* price info  */}
@@ -75,7 +78,9 @@ const ProductDetail = ({ data }) => {
           <div className={styles.code}>
             <p
               dangerouslySetInnerHTML={{
-                __html: truncateDescription(data.details.productInformation)[0],
+                __html: putSpaceAfterFullStop(
+                  truncateDescription(data.details.productInformation)[0]
+                ),
               }}
             ></p>
             <p>Product code: {data.code}</p>
@@ -97,10 +102,10 @@ const ProductDetail = ({ data }) => {
               .map((item) => (
                 <li key={data.productId + item.name}>
                   <div className={styles.listContainer}>
-                    <div dangerouslySetInnerHTML={{ __html: item.name }}></div>
-                    <div className={styles.listValues}>
+                    <p dangerouslySetInnerHTML={{ __html: item.name }}></p>
+                    <p className={styles.listValues}>
                       {item.values.join(", ") || item.value}
-                    </div>
+                    </p>
                   </div>
                 </li>
               ))}

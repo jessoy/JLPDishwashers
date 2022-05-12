@@ -1,5 +1,4 @@
 .header {
-  h1 {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
@@ -8,7 +7,10 @@
     .title {
       width: 95%;
     }
-  }
+
+    h1 {
+      margin: 0
+    }
 }
 
 .includedServices {
@@ -20,7 +22,6 @@
   width: 100%;
   padding: 0 15px 0 40px;
 }
-
 
 .priceInfo {
   h4,
@@ -42,6 +43,13 @@
 
   li {
     border-top: 1px solid var(--light-grey-color);
+
+    p {
+      color: var(--medium-grey-color);
+      line-height: 2.6rem;
+      font-size: 0.85rem;
+      margin: 0
+    }
   }
 
   .listContainer {

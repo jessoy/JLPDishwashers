@@ -1,32 +1,22 @@
-import React, { Component } from "react";
+import React from "react";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
 import styles from "./product-carousel.module.scss";
 
 // imported third party carousel package
 
-const ProductCarousel = ({ imageUrls }) => {
-
-  imageUrls.map((url, index) => {
-    return (
-      <div key={index}>
-        <img src={url} alt="image1" />
-      </div>
-    );
-  });
+const ProductCarousel = ({ imageUrls, imageDescription }) => {
 
   return (
-    <div className={styles.productCarousel} aria-pretend="true">
-      {/* <img src={image} alt="product image" style={{ width: "100%", maxWidth: "500px" }} /> */}
+    <div className={styles.productCarousel} >
 
       <Carousel
         showThumbs={false}
-        // autoPlay
+        autoPlay
         infiniteLoop="true"
         stopOnHover="true"
         showStatus={false}
         showArrows={false}
-        style={{ width: "100%", maxWidth: "500px" }}
       >
         {!imageUrls
           ? null
@@ -35,7 +25,7 @@ const ProductCarousel = ({ imageUrls }) => {
                 <div key={index}>
                   <img
                     src={url}
-                    alt="product image"
+                    alt={imageDescription}
                     style={{ width: "100%", maxWidth: "500px" }}
                   />
                 </div>

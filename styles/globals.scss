@@ -5,8 +5,7 @@ body {
   font-family: GillSansforJL, Gill Sans, Gill Sans MT, GillSansMTStd-Medium,
     Avenir, Corbel, Arial, Helvetica, sans-serif;
   font-size: 16px;
-  background-color: #F7F7F7;
-  
+  background-color: #f7f7f7;
 }
 
 * {
@@ -100,7 +99,7 @@ h6 {
   font-size: 1.1rem;
   margin: 0;
   // line-height: 0.1rem;
-  color: var(--dark-grey-color)
+  color: var(--dark-grey-color);
 }
 
 // paragraph text
@@ -109,15 +108,13 @@ p {
   font-weight: 200;
 }
 
+//specification list
 ul {
   padding: 0;
 }
 
 li {
-  color: var(--medium-grey-color);
-  line-height: 2.6rem;
   list-style: none;
-  font-size: 0.85rem;
 }
 
 @font-face {

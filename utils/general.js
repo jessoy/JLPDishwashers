@@ -2,7 +2,7 @@
 export const truncateDescription = (string) => {
   // for text formatted from start with <p> tags
   if (string.indexOf("<") === 0) {
-    const index = string.indexOf("</p>") + 5;
+    const index = string.indexOf("</p>") + 4;
     return [string.slice(0, index), string.slice(index)];
   } else {
     // for text not begining with <p> tags
@@ -31,6 +31,13 @@ export const restrictAPIResponse = (array, number) => {
 
 // replaces null text within string with replacement string
 export const replaceNull = (string, replacementString) => {
-  const index = string.indexOf('"null"');
-  return `${replacementString} ${string.slice(index + 7)}`;
+  // string = string
+  const index = string.toLowerCase().indexOf('"null"');
+  return `${string.slice(0, index)}${replacementString}${string.slice(index + 6)}`;
+};
+
+// finds string with no space after a full stop and inserts a full stop
+export const putSpaceAfterFullStop = (string) => {
+  const newString = string.replace(/\.(?=[^\d])[ ]*/g, ". ");
+  return(newString);
 };

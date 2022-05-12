@@ -7,8 +7,7 @@ import Layout from "../components/layout/layout";
 import { productsAPI } from "../config/general";
 import { restrictAPIResponse, replaceNull} from "../utils/general";
 
-// axios for experience and auto-Json functionality
-// destructure at source request for security?
+// destructure at source request for perfprmance?
 // runs on every request
 export async function getServerSideProps() {
   const { data: { products , pageInformation: {title, description}} } = await axios.get(productsAPI);

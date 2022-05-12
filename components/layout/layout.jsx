@@ -1,6 +1,5 @@
 import styles from "./layout.module.scss";
 import Head from "next/head";
-import Link from "next/link";
 
 const Layout = ({ children, home }) => {
   const siteTitle = "Dishwashers | John Lewis &amp; Partners";
@@ -32,7 +31,6 @@ const Layout = ({ children, home }) => {
         <meta name="twitter:site" content="@JLandPartners" />
       </Head>
 
-      <header className="styles.navbar">
         {/* {home ? <h1>Homepage Header</h1> : <h1>Product Page Header</h1>} */}
         <div className={styles.content}>
           <main className={styles.main}>
@@ -41,14 +39,8 @@ const Layout = ({ children, home }) => {
             </div>
           </main>
         </div>
-      </header>
     </>
-    // add head - SEO
-    // <header> {home ? (render one way ):
-    //   not home (render another way, include link to home or back button)} </header>
-    //* <main></main> */}
-    //* <footer></footer> */}
-    // link home?
+
   );
 };
 
