@@ -53,6 +53,7 @@ const ProductDetail = ({ data }) => {
 
       {/* body  */}
       <div className={styles.content}>
+        
         {/* image carousel  */}
         <div className={styles.imageCarousel}>
           <ProductCarousel

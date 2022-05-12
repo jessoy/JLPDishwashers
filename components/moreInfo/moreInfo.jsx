@@ -18,7 +18,7 @@ const MoreInfo = ({moreInfo}) => {
         </div>
       </div>
 
-      {readMore ? <p
+      {readMore ? <p data-testid="result"
               dangerouslySetInnerHTML={{
                 __html: truncateDescription(moreInfo)[1],
               }}
