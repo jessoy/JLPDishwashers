@@ -16,15 +16,18 @@ import MoreInfo from "../../components/moreInfo/moreInfo.jsx";
 export async function getServerSideProps(context) {
   const id = context.params.id;
   try {
-    let { data } = await axios.get(productDetailsAPI + id);
+    let { data, errors } = await axios.get(productDetailsAPI + id);
+    if (errors || !data) {
+      return { notFound: true };
+    }
 
     return {
       props: { data },
     };
   } catch (error) {
     console.log(error);
-    return { error };
-    // this doesn't work
+    return { notFound: true };
+
   }
 }
 

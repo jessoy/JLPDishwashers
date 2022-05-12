@@ -10,14 +10,21 @@ import { restrictAPIResponse, replaceNull} from "../utils/general";
 // destructure at source request for perfprmance?
 // runs on every request
 export async function getServerSideProps() {
-  const { data: { products , pageInformation: {title, description}} } = await axios.get(productsAPI);
+  try { 
+  const { errors, data, data: { products , pageInformation: {title, description}} } = await axios.get(productsAPI);
   const items = restrictAPIResponse(products, 20);
+  if (errors || !data) {
+    return { notFound: true };
+  }
 
   return {
     props: {
       items, title, description
     },
   };
+} catch (error) {
+  return { notFound: true };
+}
 }
 
 const Home = ({ items , title, description }) => {
