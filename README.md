@@ -1,32 +1,54 @@
-# UI Dev Technical Test - Dishwasher App
+# UI Dev Technical Test - Dishwasher App - Jessica Clements
 
 ## Brief
 
-Your task is to create a website that will allow customers to see the range of dishwashers John Lewis sells. This app will be a simple to use and will make use of existing John Lewis APIs.
+This project is a next.js web application to show customers the range of dishwashers sold at John Lewis. 
 
-We have started the project, but we'd like you to finish it off to a production-ready standard. Bits of it may be broken.
+I have never used next.js before and this is my first project implementing it.
 
-### Product Grid
+## Technologies Used
+- JavaScript ES2015
+- SCSS
+- React
+- Next.js
 
-When the website is launched, the customer will be presented with a grid of dishwashers that are currently available for customers to buy.
+## Features 
 
-For this exercise we’d be looking at only displaying the first 20 results returned by the API.
+Structure / Code
+- Consumes exsting APIs
+- Dynamically created product pages
+- Custom components e.g. back-arrow, read-more arrow 
+- Bespoke text formatting and sorting functions
+Styling
+- Mixins, custom property declarations and nested SCSS styling syntax
+- Fully responsive design 
+Testing
+- Unit tests described below
+Accessibility and SEO
+- Correctly named HTML tags and elements
+- Dynamically written alt descriptions in image tags
+- Incluion of data in Head
+Security 
+- 
+Performance
 
-### Product Page
+## Tests
 
-When a dishwasher is clicked, a new screen is displayed showing the dishwasher’s details.
+The following tests have been written :
+- test for duplicates in mock data
 
-### Designs
+In addition the following principles have been followed:
+- use of insomnia to consume data and test API
+- use of Git (branching) to divide work into sections and test individually as went along
+- found inconsistencies of mock data and api data - e.g. id's in product attributes
 
-In the `/designs` folder you will find 3 images that show the desired screen layout for the app
+## SetUp Instructions
 
-- product-page-portrait.png
-- product-page-landscape.png
-- product-grid.png
+- Clone repo from GitHub
+- Install the NPM dependencies using `npm i` on the terminal
+- Call `npm run dev`
+- Open [http://localhost:3001](http://localhost:3001) with your browser.
 
-### Mock Data
-
-There is mock data available for testing in the `mockData` folder.
 
 ## Things we're looking for
 
@@ -34,72 +56,40 @@ There is mock data available for testing in the `mockData` folder.
 - The website should be fully responsive, working across device sizes. We've provided you with some ipad-sized images as a guide.
 - The use of third party code/SDKs is allowed, but you should be able to explain why you have chosen the third party code.
 - Put all your assumptions, notes, instructions and improvement suggestions into your GitHub README.md.
-- We’re looking for a solution that's as close to the designs as possible.
+~~- We’re looking for a solution that's as close to the designs as possible.~~
 - We'll be assessing your coding style, how you've approached this task and whether you've met quality standards on areas such as accessibility, security and performance.
 - We don't expect you to spend too long on this, as a guide 3 hours is usually enough.
 
----
 
-## Getting Started
+## Notes and assumptions
 
-- `Fork this repo` into your own GitLab namespace (you will need a GitLab account).
-- Install the NPM dependencies using `npm i`. (You will need to have already installed NPM using version `14.x`.)
-- Run the development server with `npm run dev`
-- Open [http://localhost:3000](http://localhost:3000) with your browser.
+- To maintain original code style where relevant 
+- much detail on product information -
 
-## Tests
 
-- use of insomnia to consume data and test API
-- use of Git to work in sections and test as went along
-- found inconsistencies of mock data and api data - e.g. id's in product attributes
-- tested for duplicates in mock data
+- I was unclear on the meaning of the Netherworld Syntax in `app.js`
 
-## Assumptions
-
-- too much detail on product information -
-
-## Notes
-
-- Netherworld Syntax unknown - layout component moved down a level for bespoke functions
-
-## Instructions
 
 ## Improvement suggestions
 
-- Bespoke Headers for pages - e.g. Home page and product pages
+- Bespoke Headers and styling Home and product pages respectively - showing streamlined information
 - single source of price information
-- png images
+- Improved quality of png images in API with improved resolution, and invisible background
 - Look into Tab index for accessibility 
-
-## To Do
-
-~~- All styling (mobile first)~~
-~~- Tablet Styling~~
-~~- Desktop Styling~~
-- Security - Api consumption to API folder - hidden back end - hide information from customers
-- security - dangerously set inner html
-- data.price.now - coming from wrong API - see [id]
-~~- styling to carousel~~
-~~- remove duplicates from api results~~
-~~- alphabetise product spec results~~
-- spell check 5817337 has spelling error in
-- bosch text is wrong
-- homepage - replace images with png
-- check resolution of images on homepage
-~~- read more section~~
-~~- product code switched on landscape tablet and above sizes~~
-- check dishwashers are available
-- split into more components
-- reduce specifications - have a top selection and ability to show more
+- Spelling errors in API data e.g 5817337
+- Split `[id]`.jsx file into more components - for easier navigation and simplicity
+- Reduce number of specifications rendered to the page - have a primary (important) selection and include the ability to show more
 
 
 ## Third Party Code Used
 
-- Axios - combine get and json formatting
-- React-responsive Carousel
-- because of time limitations and experience
+- Axios - Used because of familiarity, time limitations and ability to combine `get` with json formatting
+- React-responsive Carousel - in product page
 
 ## Features 
 - SEO considered in the head
 - read more section written first hand as opposed to a third party resource - uses state to show / hide more text
 - manipulating api data to show first paragraph only in description - break at paragraph (not number of characters)
+
+## Problems
+- configuring jest and babel. I found that if there is a babel.config file present the tests ran successfully, however, when that file exists the next.js app ceases to complie.
