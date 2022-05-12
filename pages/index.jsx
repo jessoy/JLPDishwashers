@@ -3,46 +3,34 @@ import Link from "next/link";
 import styles from "./index.module.scss";
 import ProductListItem from "../components/product-list-item/product-list-item";
 import axios from "axios";
-import Layout, { siteTitle } from "../components/layout/layout";
+import Layout from "../components/layout/layout";
 import { productsAPI } from "../config/general";
-import { restrictAPIResponse } from "../utils/general";
+import { restrictAPIResponse, replaceNull} from "../utils/general";
 
 // axios for experience and auto-Json functionality
+// destructure at source request for security?
 // runs on every request
 export async function getServerSideProps() {
-  const response = await axios.get(productsAPI);
-  // const products = response.data.products;
-  const items = restrictAPIResponse(response.data.products, 20)
+  const { data: { products , pageInformation: {title, description}} } = await axios.get(productsAPI);
+  const items = restrictAPIResponse(products, 20);
 
   return {
     props: {
-      items,
+      items, title, description
     },
   };
 }
 
-// issue with initial loading - time delay for API to load?
-
-// export async function getStaticProps() {
-//   const allDishwasherData = getAllDishwasherData();
-//   return {
-//     props: {
-//       allDishwasherData,
-//     }
-//   }
-// }
-
-const Home = ({ items }) => {
-  // console.log(siteTitle)
+const Home = ({ items , title, description }) => {
 
   return (
     <Layout home>
       <Head>
         <title>Dishwashers | JL &amp; Partners </title>
         <meta name="keywords" content="shopping" />
-        {/* <meta name="description" content={data.pageInformation.title} /> */}
-        {/* how to change out /null/ to dishwashers */}
-        {/* query keywords */}
+
+        <meta name="title" content={replaceNull(title, "Dishwasher")} />
+        <meta name="description" content={replaceNull(description, "Dishwasher")} />
       </Head>
 
       <div>
@@ -56,13 +44,16 @@ const Home = ({ items }) => {
                 query: { id: item.productId },
               }}
             >
-              <a className={styles.link}>
-                <ProductListItem
-                  image={item.image}
-                  price={item.variantPriceRange.display.max}
-                  description={item.title}
-                ></ProductListItem>
-              </a>
+{/* check item is isAvailableToOrder */}
+              {item.isAvailableToOrder ? (
+                <a className={styles.link}>
+                  <ProductListItem
+                    image={item.image}
+                    price={item.variantPriceRange.display.max}
+                    description={item.title}
+                  ></ProductListItem>
+                </a>
+              ) : null}
             </Link>
           ))}
         </div>

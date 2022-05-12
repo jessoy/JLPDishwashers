@@ -29,12 +29,6 @@ const testForAvailability = () => {
 testForAvailability();
 
 // test for typos in product description
-
-// console.log(detailsData[0].details.productInformation)
-// console.log(detailsData[0].details.termsAndConditions)
-// console.log(detailsData[0].details.returnsHeadline)
-// console.log(detailsData[0].productId)
-
 success = true;
 const testForFullStopErrorsInText = () => {
   for (let i = 0; i < detailsData.length; i++) {

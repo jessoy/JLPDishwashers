@@ -19,4 +19,11 @@ export const restrictAPIResponse = (data, number) => {
     return newArray
 };
 
+export const replaceNull = (description, replacement) => {
+  const index = description.indexOf('\"null\"');
+  return `${replacement} ${description.slice(index+7)}`
+}
 
+// const description = "\"null\" results | John Lewis & Partners"
+
+// console.log(replaceNull(description))

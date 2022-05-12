@@ -10,13 +10,12 @@ import {
 } from "../../utils/general";
 import { productDetailsAPI } from "../../config/general";
 import Arrow from "../../components/arrow/arrow";
-import MoreInfo from "../../components/moreInfo/moreInfo.jsx"
+import MoreInfo from "../../components/moreInfo/moreInfo.jsx";
 
 export async function getServerSideProps(context) {
   const id = context.params.id;
   try {
-    let response = await axios.get(productDetailsAPI + id);
-    const data = response.data;
+    let { data } = await axios.get(productDetailsAPI + id);
 
     return {
       props: { data },
@@ -24,19 +23,18 @@ export async function getServerSideProps(context) {
   } catch (error) {
     console.log(error);
     return { error };
-    // this doesn't work 
+    // this doesn't work
   }
 }
 
 const ProductDetail = ({ data }) => {
   return (
-    // head required for SEO
     <Layout>
       <Head>
         <title>{data.title}</title>
         <meta name="og:title" content={data.title} />
         <meta name="og:image" content={data.media.images.urls[0]} />
-        {/* add description here - short description */}
+        <meta name="og:description" content={data.skus[0].skuTitle} />
       </Head>
 
       {/* header */}
@@ -86,7 +84,7 @@ const ProductDetail = ({ data }) => {
 
         {/* more info Div  */}
         <div className={styles.moreInfo}>
-          <MoreInfo moreInfo={data.details.productInformation}/>
+          <MoreInfo moreInfo={data.details.productInformation} />
         </div>
 
         {/* specification div */}
@@ -108,7 +106,6 @@ const ProductDetail = ({ data }) => {
               ))}
           </ul>
         </div>
-
       </div>
     </Layout>
   );
