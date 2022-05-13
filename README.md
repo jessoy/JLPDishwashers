@@ -1,10 +1,18 @@
 # UI Dev Technical Test - Dishwasher App - Jessica Clements
 
-## Brief
+## Introduction
 
-This project is a next.js web application to show customers the range of dishwashers sold at John Lewis. 
+This is my first project implementing next.js as it is a framework I was unfamiliar with. This project is a next.js simple web application to show customers the range of dishwashers sold at John Lewis. It is fully responsive to be viewed on a device at any size.
 
-I have never used next.js before and this is my first project implementing it.
+## Table of Contents
+* [Technologies Used](#technologies-used)
+* [Notes, Assumptions and Challenges](#notes-assumptions-and-challenges)
+* [Features](#features)
+* [Tests](#tests)
+* [Improvement suggestions](#improvement-suggestions)
+* [SetUp Instructions](#setup-instructions) 
+* [Third Party Code](#third-party-code)
+* [Contact](#contact)
 
 ## Technologies Used
 - JavaScript ES2015
@@ -12,84 +20,90 @@ I have never used next.js before and this is my first project implementing it.
 - React
 - Next.js
 
-## Features 
+## Notes Assumptions and Challenges
+- I maintained the original code style where relevant
 
-Structure / Code
-- Consumes exsting APIs
-- Dynamically created product pages
-- Custom components e.g. back-arrow, read-more arrow 
+- I used both third party code (see [Third Party Code](#third-party-code)) and created my own code throughout. In the read more section fucntionality has been added which come in on screens larger than 678px and utilises state to reveal more information on the product
+
+- I was unclear on the meaning of the Netherworld Syntax in `app.js` template file and moved the Layout component a level down to be able to render the pages differently in the future.
+
+- My biggest challenge was configuring jest and babel. I found that if there is a babel.config file present the tests on the imported functions ran successfully. However, when that file exists the next.js app ceases to compile. I chose to omit the  babel.config file in this submitted version and so the tests on the imported functions in `general.test.js` will not run.
+
+## Features
+
+#### Structure / Code
+- Consumption of exsting APIs
+- Manipulation of API data to create breakpoint at first paragraph
+- Dynamically created product pages in next.js
+- Custom components e.g. arrow
 - Bespoke text formatting and sorting functions
-Styling
+- RegEx used to find errors in text (omitted spaces after full-stops)
+- Use of state in `More Info` section
+
+#### Styling
+
 - Mixins, custom property declarations and nested SCSS styling syntax
-- Fully responsive design 
-Testing
-- Unit tests described below
-Accessibility and SEO
-- Correctly named HTML tags and elements
+- Fully responsive design
+- Conditional styling on product code in description to show product code above or below the description dependant on screen width
+
+#### Testing
+
+- Unit tests described below see [Tests](#tests)
+- Use of insomnia to consume data and test API
+- Use of Git (branching) to divide work into sections and test elements individually
+
+
+#### Accessibility and SEO
+
+- Correctly named HTML tags
 - Dynamically written alt descriptions in image tags
-- Incluion of data in Head
-Security 
-- 
-Performance
+- Inclusion of meta data in `Head` of homepage and product pages, including titles and favicon
+
+#### Security
+
+- Use of Dev Tools to check data available in the front end (taking a hacker's perspective)
+
+#### Performance
+- Destructuring data consumption of API to only the required objects
+- Implemented try-catch blocks in the `getServerSideProps` code to prevent the app from crashing
 
 ## Tests
-
 The following tests have been written :
-- test for duplicates in mock data
 
-In addition the following principles have been followed:
-- use of insomnia to consume data and test API
-- use of Git (branching) to divide work into sections and test individually as went along
-- found inconsistencies of mock data and api data - e.g. id's in product attributes
+- Test for duplicate productId's in mock data
+- Test for duplicate unique variables in mock data
+- Test for product availability in mock data
+- Test for full stop errors in product descriptions in mock data
+- Test on functions written in utils file:
+  - test `truncate description` split string correctly
+  - test `replace null` replaces 'null' correctly in a string
+
+
+## Improvement suggestions
+- To implement a bespoke navbar to the home and product pages respectively - this would be achieved thorugh the use of a ternary in layout file and could streamline the header within the product page or reveal more information.
+- To implement search criteria and sorting / filtering on the homepage.
+- To reduce the number of specifications rendered to the product page - I would have a primary selection and include the ability to show more.
+- To improve the quality of the png images in the API data with improved resolution and an invisible background.
+- To include arrows on the Image Carousel on desktop screens
+- To check the API data for spelling errors e.g 5817337 'adjustabe'
+- I would look into and implement bespoke tab indexes for improved accessibility.
+- I would further split the `[id].jsx` file into more components - for easier navigation and simplicity.
+- I would create bespoke errors messages for different codes that render information from the returned error object to the screen.
+- I would fix the error causing the tests in `general.test.js` to not run
+- I would fix the error that causes the product description to dissapear when the page is refreshed
+
 
 ## SetUp Instructions
-
 - Clone repo from GitHub
 - Install the NPM dependencies using `npm i` on the terminal
 - Call `npm run dev`
 - Open [http://localhost:3001](http://localhost:3001) with your browser.
 
 
-## Things we're looking for
 
-- Unit tests are important. We’d like to see a TDD approach to writing the app. We've included a Jest setup.
-- The website should be fully responsive, working across device sizes. We've provided you with some ipad-sized images as a guide.
-- The use of third party code/SDKs is allowed, but you should be able to explain why you have chosen the third party code.
-- Put all your assumptions, notes, instructions and improvement suggestions into your GitHub README.md.
-~~- We’re looking for a solution that's as close to the designs as possible.~~
-- We'll be assessing your coding style, how you've approached this task and whether you've met quality standards on areas such as accessibility, security and performance.
-- We don't expect you to spend too long on this, as a guide 3 hours is usually enough.
+## Third Party Code
+- Axios - This was used because of my own familiarity with it, time limitations and the ability to combine `get` with json formatting
+- React-responsive-carousel - This was used in the product page to display the product images
 
-
-## Notes and assumptions
-
-- To maintain original code style where relevant 
-- much detail on product information -
-
-
-- I was unclear on the meaning of the Netherworld Syntax in `app.js`
-
-
-## Improvement suggestions
-
-- Bespoke Headers and styling Home and product pages respectively - showing streamlined information
-- single source of price information
-- Improved quality of png images in API with improved resolution, and invisible background
-- Look into Tab index for accessibility 
-- Spelling errors in API data e.g 5817337
-- Split `[id]`.jsx file into more components - for easier navigation and simplicity
-- Reduce number of specifications rendered to the page - have a primary (important) selection and include the ability to show more
-
-
-## Third Party Code Used
-
-- Axios - Used because of familiarity, time limitations and ability to combine `get` with json formatting
-- React-responsive Carousel - in product page
-
-## Features 
-- SEO considered in the head
-- read more section written first hand as opposed to a third party resource - uses state to show / hide more text
-- manipulating api data to show first paragraph only in description - break at paragraph (not number of characters)
-
-## Problems
-- configuring jest and babel. I found that if there is a babel.config file present the tests ran successfully, however, when that file exists the next.js app ceases to complie.
+## Contact
+Created by [@jessoy](https://github.com/jessoy) - feel free to contact me!

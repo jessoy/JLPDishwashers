@@ -4,7 +4,6 @@ import Head from "next/head";
 const Layout = ({ children, home }) => {
   const siteTitle = "Dishwashers | John Lewis &amp; Partners";
 
-  // const Layout = ({ children, type }) => {
   return (
     <>
       <Head>

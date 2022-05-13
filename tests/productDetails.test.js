@@ -29,14 +29,11 @@ test("test all mock data dishwashers are available", () => {
 
 
 // test for typos in product description
-// success = true;
 const testForFullStopErrorsInText = () => {
   for (let i = 0; i < detailsData.length; i++) {
     const productInformation = detailsData[i].details.productInformation;
-    // let success;
 
     if(!checkCharAfterFullStop(productInformation)) {
-      // success = false
       console.log(detailsData[i].productId, "productInformation malformed");
       return false;
     } else {
@@ -50,17 +47,11 @@ const checkCharAfterFullStop = (productInformation) => {
   if (index === 0) {
     return;
   } else if (productInformation[index] === "<") {
-    // console.log(productInformation[index])
     productInformation = productInformation.slice(index);
     checkCharAfterFullStop(productInformation);
   } else if (productInformation[index] != " ") {
-    // console.log(index, productInformation[index]);
-    // productInformation = productInformation.slice(index)
-    // checkCharAfterFullStop(productInformation)
-    // success = false;
     return false;
   } else {
-    // console.log(productInformation[index])
     productInformation = productInformation.slice(index);
     checkCharAfterFullStop(productInformation);
   }
