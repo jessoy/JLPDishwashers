@@ -66,7 +66,7 @@ This is my first project implementing next.js as it is a framework I was unfamil
 
 #### Performance
 - Destructuring data at the point of consumption of API to only the required objects
-- Implemented try-catch blocks in the `getServerSideProps` code to prevent the app from crashing and to contine to compile and show the 404 page
+- Implemented try-catch blocks in the `getServerSideProps` code to prevent the app from crashing and to continue to compile to show the 404 page
 
 ## Tests
 The following tests have been written :
