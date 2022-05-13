@@ -4,7 +4,6 @@ import { Carousel } from "react-responsive-carousel";
 import styles from "./product-carousel.module.scss";
 
 // imported third party carousel package
-
 const ProductCarousel = ({ imageUrls, imageDescription }) => {
 
   return (

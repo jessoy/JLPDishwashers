@@ -22,6 +22,7 @@ This is my first project implementing next.js as it is a framework I was unfamil
 
 ## Notes Assumptions and Challenges
 - I maintained the original code style where relevant
+- I have assumed the styling as in the sample images across all device sizes, with a little inspirationtaken from the current John Lewis site where required
 
 - I used both third party code (see [Third Party Code](#third-party-code)) and created my own code throughout. In the read more section fucntionality has been added which come in on screens larger than 678px and utilises state to reveal more information on the product
 

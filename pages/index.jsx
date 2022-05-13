@@ -7,7 +7,7 @@ import Layout from "../components/layout/layout";
 import { productsAPI } from "../config/general";
 import { restrictAPIResponse, replaceNull} from "../utils/general";
 
-// destructure at source request for perfprmance?
+// destructure at source request for performance
 // runs on every request
 export async function getServerSideProps() {
   try { 

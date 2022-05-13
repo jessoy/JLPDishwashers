@@ -32,7 +32,6 @@ export async function getServerSideProps(context) {
 }
 
 const ProductDetail = ({ data }) => {
-  // console.log(data)
   return (
     <Layout>
       <Head>

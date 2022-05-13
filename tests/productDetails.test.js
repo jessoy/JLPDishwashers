@@ -5,7 +5,7 @@ let data = JSON.parse(fileText);
 
 const { detailsData } = data;
 
-// test for availability
+// test for product availability
 const testForAvailability = () => {
   for (let i = 0; i < detailsData.length; i++) {
     const { availabilityStatus } = detailsData[i].skus[0].availability;
