@@ -9,7 +9,7 @@ This is my first project implementing next.js as it is a framework I was unfamil
 * [Notes, Assumptions and Challenges](#notes-assumptions-and-challenges)
 * [Features](#features)
 * [Tests](#tests)
-* [Improvement suggestions](#improvement-suggestions)
+* [Improvement Suggestions](#improvement-suggestions)
 * [SetUp Instructions](#setup-instructions) 
 * [Third Party Code](#third-party-code)
 * [Contact](#contact)
@@ -22,9 +22,9 @@ This is my first project implementing next.js as it is a framework I was unfamil
 
 ## Notes Assumptions and Challenges
 - I maintained the original code style where relevant
-- I have assumed the styling as in the sample images across all device sizes, with a little inspirationtaken from the current John Lewis site where required
+- I have assumed the styling as in the sample images across all device sizes, with a little inspiration taken from the current John Lewis site where required
 
-- I used both third party code (see [Third Party Code](#third-party-code)) and created my own code throughout. In the read more section fucntionality has been added which come in on screens larger than 678px and utilises state to reveal more information on the product
+- I used both third party code (see [Third Party Code](#third-party-code)) and created my own code throughout. In the read more section functionality has been added which comes in on screens larger than 678px and utilises state to reveal more information on the product
 
 - I was unclear on the meaning of the Netherworld Syntax in `app.js` template file and moved the Layout component a level down to be able to render the pages differently in the future.
 
@@ -34,24 +34,24 @@ This is my first project implementing next.js as it is a framework I was unfamil
 
 #### Structure / Code
 - Consumption of exsting APIs
-- Manipulation of API data to create breakpoint at first paragraph
+- Manipulation of API data to create breakpoint and render first paragraph only of product description
 - Dynamically created product pages in next.js
 - Custom components e.g. arrow
-- Bespoke text formatting and sorting functions
-- RegEx used to find errors in text (omitted spaces after full-stops)
+- Bespoke text formatting and sorting functions in `utils/general.js`
+- RegEx used to find errors in text (i.e. omitted spaces after full-stops)
 - Use of state in `More Info` section
 
 #### Styling
 
 - Mixins, custom property declarations and nested SCSS styling syntax
 - Fully responsive design
-- Conditional styling on product code in description to show product code above or below the description dependant on screen width
+- Conditional styling. e.g. on product code in description to show the product code above or below the description dependant on screen width
 
 #### Testing
 
 - Unit tests described below see [Tests](#tests)
 - Use of insomnia to consume data and test API
-- Use of Git (branching) to divide work into sections and test elements individually
+- Use of Git (branching) to divide work into sections and test elements individually and sequentially
 
 
 #### Accessibility and SEO
@@ -65,19 +65,21 @@ This is my first project implementing next.js as it is a framework I was unfamil
 - Use of Dev Tools to check data available in the front end (taking a hacker's perspective)
 
 #### Performance
-- Destructuring data consumption of API to only the required objects
-- Implemented try-catch blocks in the `getServerSideProps` code to prevent the app from crashing
+- Destructuring data at the point of consumption of API to only the required objects
+- Implemented try-catch blocks in the `getServerSideProps` code to prevent the app from crashing and to contine to compile and show the 404 page
 
 ## Tests
 The following tests have been written :
-
-- Test for duplicate productId's in mock data
-- Test for duplicate unique variables in mock data
-- Test for product availability in mock data
-- Test for full stop errors in product descriptions in mock data
-- Test on functions written in utils file:
-  - test `truncate description` split string correctly
-  - test `replace null` replaces 'null' correctly in a string
+- In `api.test.js`
+  - Test for duplicate productId's in mock data
+  - Test for duplicates on all unique variables in mock data
+- In `productDetails.test.js`
+  - Test for product availability in mock data
+  - Test for full stop errors in product descriptions in mock data
+- In `general.test.js`
+  - Test on functions written in utils file:
+    - test `truncate description` split string correctly
+    - test `replace null` replaces 'null' correctly in a string
 
 
 ## Improvement suggestions
@@ -107,4 +109,4 @@ The following tests have been written :
 - React-responsive-carousel - This was used in the product page to display the product images
 
 ## Contact
-Created by [@jessoy](https://github.com/jessoy) - feel free to contact me!
+Created by [@jessoy](https://github.com/jessoy) - feel free to contact me on [linkedIn!](https://www.linkedin.com/in/jessica-clements-5b474259/)
